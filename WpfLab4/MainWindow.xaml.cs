@@ -33,6 +33,7 @@ namespace WpfLab4
             else if (tag == "Square") currentConfig = new SquareConfig();
 
             ConfigContainer.Content = currentConfig;
+            Keyboard.Focus(this);
         }
         private void BtnCreate_Click(object sender, RoutedEventArgs e)
         {
@@ -86,10 +87,26 @@ namespace WpfLab4
 
             double step = 10;
 
-            if (e.Key == Key.Left) selectedFigure.Move(-step, 0);
-            else if (e.Key == Key.Right) selectedFigure.Move(step, 0);
-            else if (e.Key == Key.Up) selectedFigure.Move(0, -step);
-            else if (e.Key == Key.Down) selectedFigure.Move(0, step);
+            if (e.Key == Key.Left)
+            {
+                selectedFigure.Move(-step, 0);
+                e.Handled = true;
+            }
+            else if (e.Key == Key.Right)
+            {
+                selectedFigure.Move(step, 0);
+                e.Handled = true;
+            }
+            else if (e.Key == Key.Up)
+            {
+                selectedFigure.Move(0, -step);
+                e.Handled = true;
+            }
+            else if (e.Key == Key.Down)
+            {
+                selectedFigure.Move(0, step);
+                e.Handled = true;
+            }
         }
     }
 }
