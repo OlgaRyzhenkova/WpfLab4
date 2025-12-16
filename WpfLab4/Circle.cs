@@ -1,0 +1,24 @@
+﻿using System.Windows.Media;
+using System.Windows.Shapes;
+using System.Windows.Controls;
+namespace WpfLab4
+{
+    public class Circle : Figure
+    {
+        public double Radius;
+        public Circle(double x, double y, double r)
+        {
+            CenterX = x;
+            CenterY = y;
+            Radius = r;
+
+            Ellipse elips = new Ellipse();
+            elips.Width = r * 2;
+            elips.Height = r * 2;
+            elips.StrokeThickness = 2;
+
+            WpfShape = elips;
+            UpdatePosition();
+        }
+    }
+}
