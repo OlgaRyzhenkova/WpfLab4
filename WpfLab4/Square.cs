@@ -26,6 +26,10 @@ namespace WpfLab4
             Canvas.SetLeft(WpfShape, CenterX - SideLength / 2);
             Canvas.SetTop(WpfShape, CenterY - SideLength / 2);
         }
-
+        public override void DrawBlack()
+        {
+            ((Shape)WpfShape).Stroke = Brushes.Black;
+            ((Shape)WpfShape).Fill = Brushes.Black;
+        }
     }
 }
