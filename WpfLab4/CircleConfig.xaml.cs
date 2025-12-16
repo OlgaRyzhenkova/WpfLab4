@@ -25,5 +25,10 @@ namespace WpfLab4
         {
             return new Circle(GetDouble(tbX.Text), GetDouble(tbY.Text), GetDouble(tbR.Text));
         }
+        public override void SetDefaultCoords(double x, double y)
+        {
+            tbX.Text = x.ToString();
+            tbY.Text = y.ToString();
+        }
     }
 }

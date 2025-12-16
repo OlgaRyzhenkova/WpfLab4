@@ -32,6 +32,14 @@ namespace WpfLab4
             if (tag == "Circle") currentConfig = new CircleConfig();
             else if (tag == "Square") currentConfig = new SquareConfig();
             else if (tag == "Rhomb") currentConfig = new RhombConfig();
+
+            // вираховуємо центр
+            double centerX = MyCanvas.ActualWidth / 2;
+            double centerY = MyCanvas.ActualHeight / 2;
+            // Якщо вікно ще не завантажилось, ActualWidth може бути 0. Ставимо дефолт.
+            if (centerX == 0) centerX = 200;
+            if (centerY == 0) centerY = 200;
+
             ConfigContainer.Content = currentConfig;
             Keyboard.Focus(this);
         }

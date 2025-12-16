@@ -24,5 +24,10 @@ namespace WpfLab4
             return new Rhomb(GetDouble(tbX.Text), GetDouble(tbY.Text),
                              GetDouble(tbH.Text), GetDouble(tbV.Text));
         }
+        public override void SetDefaultCoords(double x, double y)
+        {
+            tbX.Text = x.ToString();
+            tbY.Text = y.ToString();
+        }
     }
 }
