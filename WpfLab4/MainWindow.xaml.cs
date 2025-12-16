@@ -9,9 +9,9 @@ namespace WpfLab4
 {
     public partial class MainWindow : Window
     {
-        List<Figure> figureList = new List<Figure>(); 
-        Figure selectedFigure = null;       
-        BaseFigureConfig currentConfig = null;   
+        List<Figure> figureList = new List<Figure>();
+        Figure selectedFigure = null;
+        BaseFigureConfig currentConfig = null;
 
         public MainWindow()
         {
@@ -21,11 +21,13 @@ namespace WpfLab4
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Keyboard.Focus(this);
-            cbType_SelectionChanged(null, null); 
+            cbType_SelectionChanged(null, null);
         }
+
         private void cbType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (ConfigContainer == null) return;
+            if (ConfigContainer == null || MyCanvas == null || cbType == null) return;
+
             if (cbType.SelectedItem == null) return;
             string tag = ((ComboBoxItem)cbType.SelectedItem).Tag.ToString();
 
@@ -33,16 +35,22 @@ namespace WpfLab4
             else if (tag == "Square") currentConfig = new SquareConfig();
             else if (tag == "Rhomb") currentConfig = new RhombConfig();
 
-            // вираховуємо центр
             double centerX = MyCanvas.ActualWidth / 2;
             double centerY = MyCanvas.ActualHeight / 2;
-            // Якщо вікно ще не завантажилось, ActualWidth може бути 0. Ставимо дефолт.
-            if (centerX == 0) centerX = 200;
+
+            if (centerX == 0) centerX = 250;
             if (centerY == 0) centerY = 200;
 
+            if (currentConfig != null)
+            {
+                currentConfig.SetDefaultCoords(centerX, centerY);
+            }
+
             ConfigContainer.Content = currentConfig;
+
             Keyboard.Focus(this);
         }
+
         private void BtnCreate_Click(object sender, RoutedEventArgs e)
         {
             if (currentConfig != null)
@@ -57,6 +65,7 @@ namespace WpfLab4
             }
             Keyboard.Focus(this);
         }
+
         private void MyCanvas_Click(object sender, MouseButtonEventArgs e)
         {
             object clickedObject = e.OriginalSource;
@@ -68,7 +77,9 @@ namespace WpfLab4
                     break;
                 }
             }
+            Keyboard.Focus(this);
         }
+
         private void SelectFigure(Figure fig)
         {
             if (selectedFigure != null)
@@ -79,6 +90,7 @@ namespace WpfLab4
             if (selectedFigure != null)
                 ((Shape)selectedFigure.WpfShape).Stroke = Brushes.Blue;
         }
+
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
             if (selectedFigure != null)
@@ -89,6 +101,7 @@ namespace WpfLab4
             }
             Keyboard.Focus(this);
         }
+
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (selectedFigure == null) return;

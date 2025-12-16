@@ -1,33 +1,36 @@
 ﻿<Window x:Class="WpfLab4.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Lab 4" Height="450" Width="800"
+        Title="Lab 4" Height="500" Width="800"
         Loaded="Window_Loaded" 
         KeyDown="Window_KeyDown"
         Focusable="True">
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="220"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Column="0" Background="#EEE" Margin="5">
-            <TextBlock Text="Обери фігуру:" Margin="5"/>
+        <StackPanel Grid.Column="0" Background="#F0F0F0" Margin="5">
+            <TextBlock Text="Обери фігуру:" Margin="5,10,5,5" FontWeight="Bold"/>
+
             <ComboBox x:Name="cbType" SelectionChanged="cbType_SelectionChanged" Margin="5">
                 <ComboBoxItem Content="Коло" Tag="Circle" IsSelected="True"/>
                 <ComboBoxItem Content="Квадрат" Tag="Square"/>
                 <ComboBoxItem Content="Ромб" Tag="Rhomb"/>
             </ComboBox>
 
+            <Separator Margin="5"/>
+
             <ContentControl x:Name="ConfigContainer" Margin="5"/>
 
-            <Button Content="Створити" Click="BtnCreate_Click" Margin="5"/>
+            <Button Content="Створити" Click="BtnCreate_Click" Margin="5" Height="30" Background="#DDDDDD"/>
             <Button Content="Видалити" Click="BtnDelete_Click" Margin="5"/>
 
-            <TextBlock Text="Управління: Стрілки" Margin="5,20,5,5" Foreground="Blue"/>
+            <TextBlock Text="Керування: Стрілки" Margin="5,20,5,5" Foreground="Blue"/>
         </StackPanel>
 
-        <Canvas x:Name="MyCanvas" Grid.Column="1" Background="White" MouseLeftButtonDown="MyCanvas_Click"/>
+        <Canvas x:Name="MyCanvas" Grid.Column="1" Background="White" MouseLeftButtonDown="MyCanvas_Click" ClipToBounds="True"/>
     </Grid>
 </Window>
