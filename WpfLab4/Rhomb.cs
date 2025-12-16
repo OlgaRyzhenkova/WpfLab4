@@ -50,5 +50,7 @@ namespace WpfLab4
             ((Shape)WpfShape).Stroke = Brushes.Transparent;
             ((Shape)WpfShape).Fill = Brushes.Transparent;
         }
+        public override double GetHalfWidth() { return HorDiagLen / 2; }
+        public override double GetHalfHeight() { return VertDiagLen / 2; }
     }
 }

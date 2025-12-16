@@ -17,7 +17,7 @@ namespace WpfLab4
             elips.Height = r * 2;
             elips.StrokeThickness = 2;
 
-            WpfShape = elips;
+            WpfShape = new Ellipse { Width = r * 2, Height = r * 2, StrokeThickness = 2 };
             UpdatePosition();
         }
         public override void UpdatePosition()
@@ -35,5 +35,8 @@ namespace WpfLab4
             ((Shape)WpfShape).Stroke = Brushes.Transparent;
             ((Shape)WpfShape).Fill = Brushes.Transparent;
         }
+        // Для кола половина ширини і висоти - це Радіус
+        public override double GetHalfWidth() { return Radius; }
+        public override double GetHalfHeight() { return Radius; }
     }
 }

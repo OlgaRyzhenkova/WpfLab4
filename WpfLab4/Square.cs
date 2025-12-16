@@ -18,7 +18,7 @@ namespace WpfLab4
             rect.Height = side;
             rect.StrokeThickness = 2;
 
-            WpfShape = rect;
+            WpfShape = new Rectangle { Width = side, Height = side, StrokeThickness = 2 };
             UpdatePosition();
         }
         public override void UpdatePosition()
@@ -36,5 +36,7 @@ namespace WpfLab4
             ((Shape)WpfShape).Stroke = Brushes.Transparent;
             ((Shape)WpfShape).Fill = Brushes.Transparent;
         }
+        public override double GetHalfWidth() { return SideLength / 2; }
+        public override double GetHalfHeight() { return SideLength / 2; }
     }
 }
