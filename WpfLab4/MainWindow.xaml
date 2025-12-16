@@ -17,6 +17,7 @@
             <ComboBox x:Name="cbType" SelectionChanged="cbType_SelectionChanged" Margin="5">
                 <ComboBoxItem Content="Коло" Tag="Circle" IsSelected="True"/>
                 <ComboBoxItem Content="Квадрат" Tag="Square"/>
+                <ComboBoxItem Content="Ромб" Tag="Rhomb"/>
             </ComboBox>
 
             <ContentControl x:Name="ConfigContainer" Margin="5"/>

@@ -31,7 +31,7 @@ namespace WpfLab4
 
             if (tag == "Circle") currentConfig = new CircleConfig();
             else if (tag == "Square") currentConfig = new SquareConfig();
-
+            else if (tag == "Rhomb") currentConfig = new RhombConfig();
             ConfigContainer.Content = currentConfig;
             Keyboard.Focus(this);
         }
