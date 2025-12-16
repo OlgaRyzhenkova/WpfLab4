@@ -15,14 +15,15 @@ using System.Windows.Shapes;
 
 namespace WpfLab4
 {
-    /// <summary>
-    /// Логика взаимодействия для CircleConfig.xaml
-    /// </summary>
-    public partial class CircleConfig : UserControl
+    public partial class CircleConfig : BaseFigureConfig
     {
-        public CircleConfig()
+        public CircleConfig() 
+        { 
+            InitializeComponent(); 
+        }
+        public override Figure CreateFigure()
         {
-            InitializeComponent();
+            return new Circle(GetDouble(tbX.Text), GetDouble(tbY.Text), GetDouble(tbR.Text));
         }
     }
 }
