@@ -31,5 +31,10 @@ namespace WpfLab4
             ((Shape)WpfShape).Stroke = Brushes.Black;
             ((Shape)WpfShape).Fill = Brushes.Black;
         }
+        public override void HideDrawingBackGround()
+        {
+            ((Shape)WpfShape).Stroke = Brushes.Transparent;
+            ((Shape)WpfShape).Fill = Brushes.Transparent;
+        }
     }
 }
