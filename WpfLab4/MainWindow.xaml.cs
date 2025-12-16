@@ -25,6 +25,7 @@ namespace WpfLab4
         }
         private void cbType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (ConfigContainer == null) return;
             if (cbType.SelectedItem == null) return;
             string tag = ((ComboBoxItem)cbType.SelectedItem).Tag.ToString();
 
