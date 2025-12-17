@@ -12,7 +12,7 @@ namespace WpfLab4
         public abstract void DrawBlack();
         public abstract void HideDrawingBackGround();
 
-        //  методи для отримання розмірів
+        //  методи для отримання розмірів для перевірки стін
         public abstract double GetHalfWidth();
         public abstract double GetHalfHeight();
 
